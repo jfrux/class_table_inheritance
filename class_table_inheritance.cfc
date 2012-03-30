@@ -118,29 +118,7 @@
 		<cfargument name="assoc_id" />
 		<cfset variables.wheels.class.class_table_inheritance.association_class = model(assoc_id) />
 	</cffunction>
-	<cfscript>
-	/**
-	 * Case-insensitive function for removing duplicate entries in a list.
-	 * Based on dedupe by Raymond Camden
-	 * 
-	 * @param list 	 List to be modified. (Required)
-	 * @return Returns a list. 
-	 * @author Jeff Howden (&#99;&#102;&#108;&#105;&#98;&#64;&#106;&#101;&#102;&#102;&#104;&#111;&#119;&#100;&#101;&#110;&#46;&#99;&#111;&#109;) 
-	 * @version 1, July 2, 2008 
-	 */
-	function ListDeleteDuplicatesNoCase(list) {
-	  var i = 1;
-	  var delimiter = ',';
-	  var returnValue = '';
-	  if(ArrayLen(arguments) GTE 2)
-		delimiter = arguments[2];
-	  list = ListToArray(list, delimiter);
-	  for(i = 1; i LTE ArrayLen(list); i = i + 1)
-		if(NOT ListFindNoCase(returnValue, list[i], delimiter))
-		  returnValue = ListAppend(returnValue, list[i], delimiter);
-	  return returnValue;
-	}
-	</cfscript>
+	
 	<cffunction name="$_get" access="public">
 		<cfscript>
 		// if the field is ID than i only bind that with the association field.
